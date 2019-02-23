@@ -12,10 +12,10 @@
 # Happy Coding!
 
 # AWS service name.
-service: REST-API9
+service: REST-API
 
 custom:
-  devicesTableName: devices9
+  devicesTableName: Devices
   devicesTableArn: # ARNs are addresses of deployed services in AWS space.
     Fn::Join:
     - ":"
@@ -29,7 +29,7 @@ custom:
 provider:
   name: aws
   runtime: go1.x
-  stage: api9 # Your development stage
+  stage: api # Your development stage
   region: us-east-1
   environment:
     DEVICES_TABLE_NAME: ${self:custom.devicesTableName}
