@@ -76,7 +76,7 @@ This project is small and simple so I implement Service architecture that means 
 
 ## How to Run
 
-1. Clone the project to `/src `directory Go uses for its workspaces. Use `cd simple-restful-api-aws` for navigatating to project folder.
+1. Clone the project to `/src `directory Go uses for its workspaces. Use `cd src/simple-restful-api-aws` for navigatating to project folder.
 
 2. Type below to build
 
@@ -84,7 +84,7 @@ This project is small and simple so I implement Service architecture that means 
 env GOOS=linux GOARCH=amd64 go build -ldflags="-s -w"  -o bin/devices simple-restful-api-aws/device
 ```
 
-3. Make a zip of executable run
+3. Make a zip of executable device file
 
 `zip -j bin/devices.zip bin/devices`
 
