@@ -55,7 +55,7 @@ functions:
           path: devices
           method: post
       - http:
-          path: devices/{idvalue}
+          path: devices/{id}
           method: get
           
 resources:

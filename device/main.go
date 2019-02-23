@@ -84,7 +84,7 @@ func (a Handler) postDevice(req events.APIGatewayProxyRequest) events.APIGateway
 func (a Handler) getDevice(req events.APIGatewayProxyRequest) events.APIGatewayProxyResponse {
 
 	//get the value of path parameter that determines id of device
-	id := req.PathParameters["idvalue"]
+	id := req.PathParameters["id"]
 
 	//get device from database
 	device, err := a.communicator.getFromDB(id)
