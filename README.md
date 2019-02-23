@@ -73,6 +73,7 @@ If any exceptional situation occurs on the server side.
 ```
 ## Project Architecture
 This project is small and simple so I implement Service architecture that means a lambda function can handle different action (responds to Http GET & Http POST). Micro-service architecture is another way that each lambda function is responsible for one action only.
+Also I separate data layer from logics of project.
 
 ## How to Run
 
