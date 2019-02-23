@@ -13,7 +13,7 @@ A simple Restful API on AWS using the following tech stack:
 [AWS DynamoDB](https://aws.amazon.com/dynamodb/)
 
 
-The API accepts the following JSON requests and produce the corresponding HTTP responses:
+The API accepts the following JSON requests and produces the corresponding HTTP responses:
 
 ### Request 1:
 ```
@@ -72,12 +72,12 @@ HTTP 500 Internal Server Error
 If any exceptional situation occurs on the server side.
 ```
 ## Project Architecture
-This project is small and simple so I implement Service architecture that means a lambda function can handle different action (responds to Http GET & Http POST). Micro-service architecture is another way that each lambda function is responsible for one action only.
+This project is small and simple so I implement Service architecture that means a lambda function can handle different actions (responds to Http GET & Http POST). Micro-service architecture is another way that each lambda function is only responsible for one action.
 Also I separate data layer from logics of project.
 
 ## How to Run
 
-1. Clone the project to `/src `directory Go uses for its workspaces. Use `cd src/simple-restful-api-aws` for navigatating to project folder.
+1. Clone the project to `/src `directory Go uses for its workspaces. Use `cd src/simple-restful-api-aws` for navigating to project folder.
 
 2. Type below to build
 
@@ -90,14 +90,14 @@ env GOOS=linux GOARCH=amd64 go build -ldflags="-s -w"  -o bin/devices simple-res
 `zip -j bin/devices.zip bin/devices`
 
 
-4. Deploy to AWS by serverless
+4. Deploy project by serverless
 
 `sls deploy`
 
 
 ## How to Test
 
-To post a device use the following command. Make sure to change  `<rest-api-id>` . You can get it from the link shown after deploy
+To post a device use the following command. Make sure to change  `<rest-api-id>` . You can get it from the link shown after deploying.
 
 ```
 curl -i -H "Content-Type: application/json" -X POST https://<rest-api-id>.execute-api.us-east-1.amazonaws.com/api/devices -d '{"id":"/devices/id1","deviceModel":"/devicemodels/id1","name":"Sensor","note":"Testing a sensor.","serial":"A020000102"}'
@@ -112,9 +112,9 @@ curl -i https://<rest-api-id>.execute-api.us-east-1.amazonaws.com/api/devices/id
 
 ## Unit Test
 
-I put tests in `main_test.go` and `dataLayer_test.go` . **Total coverage of statement is 97.7%.** coverage of `main_test.go` is 96.9% and `dataLayer_test.go`  is 100%.
+I put tests in `main_test.go` and `dataLayer_test.go` . **Total coverage of statement is 97.7%.** The coverage of `main_test.go` and `dataLayer_test.go` are 96.9% and 100%, respectively.
 
-To see the test unit coverage go to `/device` folder by `cd device` and execute following:
+To see coverage of test unit go to `/device` folder by `cd device` and execute following:
 
 ```
 go test -coverprofile=cover.out
