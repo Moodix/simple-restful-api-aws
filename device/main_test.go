@@ -84,20 +84,20 @@ func TestGetDevice(t *testing.T) {
 
 	handler := Handler{testObj}
 
-	req := events.APIGatewayProxyRequest{PathParameters: map[string]string{"idvalue": "id1"}}
+	req := events.APIGatewayProxyRequest{PathParameters: map[string]string{"id": "id1"}}
 	js, _ := json.Marshal(d)
 	assert.Equal(t, handler.getDevice(req), events.APIGatewayProxyResponse{
 		StatusCode: http.StatusOK, //HTTP 200
 		Body:       string(js),
 	})
 
-	req = events.APIGatewayProxyRequest{PathParameters: map[string]string{"idvalue": "id doesn't existed"}}
+	req = events.APIGatewayProxyRequest{PathParameters: map[string]string{"id": "id doesn't existed"}}
 	assert.Equal(t, handler.getDevice(req), events.APIGatewayProxyResponse{
 		StatusCode: http.StatusNotFound, //HTTP 404
 		Body:       http.StatusText(http.StatusNotFound),
 	})
 
-	req = events.APIGatewayProxyRequest{PathParameters: map[string]string{"idvalue": ""}}
+	req = events.APIGatewayProxyRequest{PathParameters: map[string]string{"id": ""}}
 	assert.Equal(t, handler.getDevice(req), events.APIGatewayProxyResponse{
 		StatusCode: http.StatusInternalServerError, //HTTP 500
 		Body:       http.StatusText(http.StatusInternalServerError),
