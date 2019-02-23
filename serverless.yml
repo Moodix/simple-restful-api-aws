@@ -12,7 +12,7 @@
 # Happy Coding!
 
 # AWS service name.
-service: simple-Go-RESTful-AWS9
+service: REST-API9
 
 custom:
   devicesTableName: devices9
