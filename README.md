@@ -1,6 +1,6 @@
 # Simple Restful API with GO on AWS
 
-A simple Restful API on AWS using the following tech stacks:
+A simple Restful API on AWS using the following tech stack:
 
 [Serverless Framework](https://serverless.com/)
 
