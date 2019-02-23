@@ -115,7 +115,7 @@ curl -i https://<rest-api-id>.execute-api.us-east-1.amazonaws.com/api/devices/id
 
 I put tests in `main_test.go` and `dataLayer_test.go` . **Total coverage of the statements is 97.7%.** The coverage of `main_test.go` and `dataLayer_test.go` are 96.9% and 100%, respectively.
 
-To see coverage of test unit go to `/device` folder by `cd device` and execute the following:
+To see coverage of unit test go to `/device` folder by `cd device` and execute the following:
 
 ```
 go test -coverprofile=cover.out
