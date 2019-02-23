@@ -16,7 +16,7 @@ service: REST-API
 
 custom:
   devicesTableName: Devices
-  devicesTableArn: # ARNs are addresses of deployed services in AWS space.
+  devicesTableArn:
     Fn::Join:
     - ":"
     - - arn
@@ -29,11 +29,11 @@ custom:
 provider:
   name: aws
   runtime: go1.x
-  stage: api # Your development stage
+  stage: api
   region: us-east-1
   environment:
     DEVICES_TABLE_NAME: ${self:custom.devicesTableName}
-  iamRoleStatements: # Defines what other AWS services our lambda functions can access.        
+  iamRoleStatements:    
     - Effect: Allow
       Action:
         - dynamodb:GetItem
@@ -60,7 +60,7 @@ functions:
           
 resources:
   Resources:
-    DevicesTable: # Define a new DynamoDB Table resource to store items
+    DevicesTable:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${self:custom.devicesTableName}
