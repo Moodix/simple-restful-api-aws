@@ -77,7 +77,7 @@ Please note that I separated data layer from logics of project.
 
 ## How to Run
 
-1. Clone the project to `/src `directory that Go uses for its workspaces. Use `cd src/simple-restful-api-aws` for navigating to project folder.
+1. Clone the project to `/src `directory that Go uses for its workspaces. Use `cd simple-restful-api-aws` for navigating to project folder.
 
 2. To build, type the following command
 
