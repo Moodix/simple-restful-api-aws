@@ -99,7 +99,7 @@ env GOOS=linux GOARCH=amd64 go build -ldflags="-s -w"  -o bin/devices simple-res
 To post a device use the following command. Make sure to change  `<rest-api-id>` . You can get it from the link shown after deploy
 
 ```
-curl -i -H "Content-Type: application/json" -X POST https://<rest-api-id>.execute-api.us-east-1.amazonaws.com/api/devices -d '{"id":"/devices/id1","deviceModel":"/devicemodels/id1","name":"","note":"Testing a sensor.”,"serial":"A020000102"}'
+curl -i -H "Content-Type: application/json" -X POST https://<rest-api-id>.execute-api.us-east-1.amazonaws.com/api/devices -d '{"id":"/devices/id1","deviceModel":"/devicemodels/id1","name":"Sensor","note":"Testing a sensor.","serial":"A020000102"}'
 ```
 
 To get a device from database you can use this comand:
@@ -111,15 +111,15 @@ curl -i https://<rest-api-id>.execute-api.us-east-1.amazonaws.com/api/devices/id
 
 ## Unit Test
 
-I put tests in `main_test.go` and `dataLayer_test.go` . Total coverage of statement is 97.7% . Separate apart coverage of `main_test.go` is 96.9% and `dataLayer_test.go`  is 100%.
+I put tests in `main_test.go` and `dataLayer_test.go` . **Total coverage of statement is 97.7%.** coverage of `main_test.go` is 96.9% and `dataLayer_test.go`  is 100%.
 
-To see the test unit coverage go to /devices folder by cd devices and execute following:
+To see the test unit coverage go to `/device` folder by `cd device` and execute following:
 
 ```
 go test -coverprofile=cover.out
 ```
 
-To see in Html:
+To see in Html format:
 
 ```
 go tool cover -html=cover.out
