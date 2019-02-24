@@ -3,8 +3,10 @@ package main
 
 import (
 	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 )
 
 type device struct {
@@ -14,6 +16,13 @@ type device struct {
 	Note   string `json:"note"`
 	Serial string `json:"serial"`
 }
+
+type Database struct {
+	DynamoDB dynamodbiface.DynamoDBAPI
+}
+
+//setup the Database
+var DB = Database{dynamodb.New(session.New(), aws.NewConfig().WithRegion("us-east-1"))}
 
 func (db Database) postToDB(dev device) error {
 	device := &dynamodb.PutItemInput{
