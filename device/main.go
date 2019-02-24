@@ -4,10 +4,6 @@ import (
 	"encoding/json"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/dynamodb"
-	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 	"net/http"
 )
 
@@ -16,18 +12,11 @@ type Communicator interface {
 	postToDB(bk device) error
 }
 
-type Database struct {
-	DynamoDB dynamodbiface.DynamoDBAPI
-}
-
 type Handler struct {
 	communicator Communicator
 }
 
-//setup the Database
-var db = Database{dynamodb.New(session.New(), aws.NewConfig().WithRegion("us-east-1"))}
-
-var handler = Handler{db}
+var handler = Handler{DB}
 
 //When a http POST is sent to server, Lambda triggers this function
 func (a Handler) postDevice(req events.APIGatewayProxyRequest) events.APIGatewayProxyResponse {
