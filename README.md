@@ -76,9 +76,9 @@ This project is small and simple. Therefore, I implemented Service architecture 
 Please note that I separated data layer from logics of project.
 
 ## How to Run
-After configuring the CLI to use the credentials of the IAM user by `aws configure` command, do these steps:
+After configuring the CLI to use the credentials of the IAM user by `aws configure` command (You’ll also need to specify the default region to `us-east-1`), do these steps:
 
-1. Clone the project to `/src `directory that Go uses for its workspaces. Use `cd simple-restful-api-aws` for navigating to project folder.
+1. Clone the project to `/src` directory that Go uses for its workspaces. Use `cd simple-restful-api-aws` for navigating to project folder.
 
 2. To build, type the following command
 
