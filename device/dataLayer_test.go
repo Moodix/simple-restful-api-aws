@@ -54,9 +54,7 @@ func TestPutItemToDB(t *testing.T) {
 			"note":        "note_test",
 			"serial":      "serial_test"},
 	}
-	if err := db.postToDB(d); err != nil {
-		t.Error("Erooooooooooor")
-	}
+	db.postToDB(d)
 
 }
 
@@ -85,7 +83,7 @@ func (fd *fakeDynamoDB) GetItem(input *dynamodb.GetItemInput) (*dynamodb.GetItem
 
 		if key == "id" && fd.payload[key] == "id_test1" {
 			output.SetItem(nil)
-			err = errors.New("oh!")
+			err = errors.New("error")
 
 		}
 
